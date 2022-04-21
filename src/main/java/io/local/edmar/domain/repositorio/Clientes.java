@@ -56,5 +56,7 @@ public class Clientes {
     public List<Cliente> obterTodos(){
         return entityManager.createQuery("from Cliente", Cliente.class).getResultList();
     }
+    //comentario inutil
+
 
 }
