@@ -2,7 +2,6 @@ package io.local.edmar.domain.repositorio;
 
 import io.local.edmar.domain.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
