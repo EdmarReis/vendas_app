@@ -1,4 +1,4 @@
-package io.local.edmar.domain.repositorio;
+package io.local.edmar.domain.repository;
 
 import io.local.edmar.domain.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,11 +12,12 @@ public interface Clientes extends JpaRepository<Cliente, Integer> {
     @Query(value = " select * from cliente c where c.nome like '%:nome%' ", nativeQuery = true)
     List<Cliente> encontrarPorNome(@Param("nome") String nome);
 
-    //@Query(value = " delete from cliente c where c.nome = :nome ")
-    //@Modifying
-    //void deleteByNome(String nome);
-
     boolean existsByNome(String nome);
+
+    @Query("select c from Cliente c left join fetch c.pedidos where c.id =:id ")
+    Cliente findClienteFetchPedidos(@Param("id") Integer id);
+
+
 
 
 
