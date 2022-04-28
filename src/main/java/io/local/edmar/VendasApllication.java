@@ -18,29 +18,15 @@ import java.util.List;
 @SpringBootApplication  //classe inicializadora do projeto
 public class VendasApllication {
 
+
     @Bean
     public CommandLineRunner init(
-            @Autowired Pedidos pedidos,
             @Autowired Clientes clientes){
 
         return args -> {
-            System.out.println("Salvando clientes");
-            Cliente fulano = new Cliente("Fulano");
-            clientes.save(fulano);
 
-            Pedido p = new Pedido();
-            p.setCliente(fulano);
-            p.setDataPedido(LocalDate.now());
-            p.setTotal(BigDecimal.valueOf(100));
-
-            pedidos.save(p);
-
-            pedidos.findByCliente(fulano).forEach(System.out::println);
-
-            //Cliente cliente = clientes.findClienteFetchPedidos(fulano.getId());
-            //System.out.println(cliente);
-            //System.out.println(cliente.getPedidos());
-
+            Cliente c = new Cliente(null,"Fulano");
+            clientes.save(c);
 
         };
 
